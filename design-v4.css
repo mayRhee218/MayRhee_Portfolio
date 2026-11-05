@@ -1,0 +1,2335 @@
+/*
+ * May Rhee — Portfolio v4 / editorial design refinement
+ * Intent: quiet black-and-white paper, readable UI, meaningful motion.
+ * Layered over the original styles to keep the existing project structure intact.
+ * No div/span wrappers required.
+ */
+:root {
+  --paper: #fff;
+  --canvas: #fff;
+  --ink: #1b1b1b;
+  --muted: #545454;
+  --soft: #686868;
+  --line: #d7d7d7;
+  --shadow: #dedede;
+  --readable: 16px;
+  --corner: 52px;
+}
+
+html {
+  scroll-padding-top: 24px;
+}
+
+body {
+  background: #fff;
+  font-size: var(--readable);
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.app-frame {
+  max-width: 1280px;
+  padding: 0 clamp(20px, 5vw, 76px) 65px;
+}
+
+.site-header {
+  height: 94px;
+  border-color: var(--line);
+}
+
+.brand {
+  min-height: 48px;
+}
+
+.brand img {
+  width: 48px;
+  height: 48px;
+}
+
+.brand strong {
+  font: 500 30px/1.1 var(--script);
+}
+
+.desktop-nav {
+  gap: 30px;
+}
+
+.desktop-nav a {
+  font: 400 23px/1 var(--script);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.desktop-nav a[aria-current="page"] {
+  text-decoration-thickness: 1px;
+}
+
+.site-footer {
+  margin-top: 70px;
+  padding-top: 18px;
+}
+
+.site-footer p {
+  font-size: 21px;
+}
+
+.site-footer small {
+  font-size: 11px;
+}
+
+.eyebrow,
+.paper-number,
+.paper-index {
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: .08em;
+}
+
+.eyebrow {
+  color: #545454;
+}
+
+/* The sketchbook can feel physical without the visual noise of large dark shadows. */
+.paper {
+  border-color: #c9c9c9;
+  box-shadow: 5px 5px 0 #e4e4e4, 5px 5px 0 1px #cecece;
+}
+
+.back-paper {
+  background: #f6f6f6;
+  border-color: #d4d4d4;
+}
+
+.back-paper strong {
+  color: #343434;
+}
+
+.notebook-heading {
+  padding-bottom: 18px;
+}
+
+.page-fold,
+.page-prev {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+.page-prev {
+  --fold-size: 36px;
+}
+
+.page-fold {
+  --fold-size: 60px;
+}
+
+/* Keyboard users get the same visible affordance as pointer users. */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid #222;
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 10001;
+  padding: 12px 18px;
+  background: #111;
+  color: #fff;
+  transform: translateY(-180%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* Intro has a readable value proposition and a secondary route to the work. */
+.home-layout {
+  grid-template-columns: minmax(300px, 39%) minmax(0, 61%);
+  min-height: 675px;
+  padding-top: 60px;
+}
+
+.home-intro {
+  padding: 46px 32px 0 0;
+}
+
+.home-intro .eyebrow {
+  font: 400 23px var(--script);
+}
+
+.home-intro h1 {
+  font: 400 clamp(43px, 4.2vw, 62px)/1.04 var(--script);
+  margin-top: 20px;
+}
+
+.intro-role {
+  font: 400 27px/1.12 var(--script);
+  margin: 18px 0 0;
+  max-width: 360px;
+}
+
+.intro-about {
+  font: 400 15px/1.85 var(--sans);
+  max-width: 340px;
+  color: #4c4c4c;
+  margin-top: 32px;
+}
+
+.intro-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin-top: 26px;
+  align-items: center;
+}
+
+.intro-actions a {
+  font: 500 12px/1.45 var(--sans);
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  letter-spacing: .01em;
+}
+
+.text-link {
+  border-bottom: 1px solid #252525;
+}
+
+.text-link-muted {
+  color: #555;
+  border-bottom-color: #777;
+}
+
+.home-stack {
+  max-width: 680px;
+  margin: 0 28px 0 0;
+}
+
+.profile-paper {
+  min-height: 615px;
+  padding: 38px 44px 44px;
+}
+
+.profile-avatar {
+  margin: 24px 0 18px;
+  width: 76px;
+  height: 76px;
+}
+
+.profile-paper h2 {
+  font: 400 43px/1 var(--script);
+}
+
+.profile-job {
+  font: 400 26px/1.15 var(--script);
+  margin: 10px 0 30px;
+}
+
+.profile-paper h3 {
+  font: 400 26px var(--script);
+  margin: 6px 0 12px;
+}
+
+.profile-paper address {
+  font: 400 22px/1.45 var(--script);
+  overflow-wrap: anywhere;
+}
+
+.profile-paper address a {
+  text-decoration: underline;
+  text-decoration-color: #aaa;
+  text-underline-offset: 4px;
+}
+
+.profile-work-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 22px;
+  padding-bottom: 2px;
+  font: 500 12px var(--sans);
+  border-bottom: 1px solid #2c2c2c;
+}
+
+.home-next {
+  left: 40px;
+  right: -20px;
+  top: 41px;
+}
+
+/* A stable content width: actual thumbnails stay the focus, not the ornaments. */
+.projects-intro {
+  padding-top: 32px;
+}
+
+.projects-intro h1 {
+  font: 400 30px/1.15 var(--script);
+  margin: 10px 0 7px;
+}
+
+.projects-intro>p:last-child {
+  font: 400 21px/1.25 var(--script);
+  color: #555;
+}
+
+.projects-intro a {
+  text-decoration-thickness: 1px;
+}
+
+.projects-layout {
+  min-height: 690px;
+}
+
+.project-stage {
+  width: min(64%, 580px);
+  margin: 45px auto 0;
+  transform: translateX(-34px);
+}
+
+.project-paper {
+  height: 485px;
+  padding: 25px 28px;
+}
+
+.project-image {
+  aspect-ratio: 2.0/1;
+  border: 1px solid #eee;
+}
+
+.project-image img {
+  transition: transform .35s ease;
+}
+
+.project-image:hover img,
+.project-image:focus-visible img {
+  transform: scale(1.025);
+}
+
+.project-date {
+  font-size: 11px;
+  font-weight: 500;
+  margin-top: 16px;
+}
+
+.project-paper h2 {
+  font: 400 26px/1.04 var(--script);
+  margin: 7px 0;
+}
+
+.project-paper h2 a {
+  display: inline-block;
+  min-height: 32px;
+}
+
+.project-summary {
+  font: 400 13px/1.6 var(--sans);
+  color: #4d4d4d;
+  max-width: 92%;
+}
+
+.project-next {
+  top: 43px;
+  bottom: -8px;
+  left: calc(100% - 15px);
+  width: 125px;
+  padding: 22px 10px;
+}
+
+.project-next strong {
+  font-size: 23px;
+  overflow-wrap: anywhere;
+}
+
+.project-index-hint {
+  font: 400 12px/1.55 var(--sans);
+  color: #626262;
+  text-align: center;
+  margin: 26px auto 0;
+}
+
+.project-index-hint a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: #202020;
+}
+
+/* Project overview. Show original assets without cropping or replacing them. */
+.all-projects {
+  padding-top: 20px;
+}
+
+.all-projects .projects-intro>p:last-child {
+  font: 400 16px/1.6 var(--sans);
+  max-width: 540px;
+}
+
+.project-notebook-link {
+  display: inline-flex;
+  margin-top: 16px;
+  align-items: center;
+  min-height: 44px;
+  font: 500 12px/1.4 var(--sans);
+  border-bottom: 1px solid #111;
+}
+
+.index-grid {
+  gap: 50px 36px;
+  margin-top: 44px;
+}
+
+.index-preview {
+  aspect-ratio: 1.65/1;
+  border-color: var(--line);
+  padding: 9px;
+  box-shadow: 4px 4px 0 #efefef;
+  overflow: hidden;
+}
+
+.index-preview img {
+  transition: transform .3s ease;
+}
+
+.index-preview:hover img,
+.index-preview:focus-visible img {
+  transform: scale(1.02);
+}
+
+.index-card>p:first-of-type {
+  font-size: 11px;
+  color: #585858;
+  margin-top: 18px;
+}
+
+.index-card h2 {
+  font: 400 29px/1.1 var(--script);
+  margin: 5px 0;
+}
+
+.index-card h2 a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 37px;
+}
+
+.index-card>p:last-child {
+  font: 400 14px/1.7 var(--sans);
+  color: #4c4c4c;
+  max-width: 510px;
+}
+
+/* Case studies get an editorial hierarchy and readable supporting text. */
+.case-study {
+  padding-top: 28px;
+}
+
+.breadcrumb {
+  font: 400 21px var(--script);
+}
+
+.breadcrumb a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.breadcrumb p {
+  font: 500 11px var(--sans);
+}
+
+.case-head {
+  padding: 33px 0 32px;
+}
+
+.case-head h1 {
+  font: 400 clamp(44px, 5vw, 64px)/1.05 var(--script);
+  margin: 12px 0;
+}
+
+.case-head>p:last-child {
+  font: 400 12px/1.65 var(--sans);
+}
+
+.case-head>p:nth-child(3) {
+  font: 400 16px/1.75 var(--sans);
+  color: #424242;
+  max-width: 700px;
+}
+
+.case-kicker {
+  color: #777 !important;
+  margin-top: 10px;
+}
+
+.case-opening {
+  grid-template-columns: minmax(0, 1.4fr) minmax(250px, .6fr);
+  gap: 6%;
+  margin-top: 38px;
+}
+
+.case-hero {
+  padding: 12px;
+}
+
+.case-hero figcaption {
+  font: 400 12px/1.6 var(--sans);
+  color: #565656;
+  margin-top: 10px;
+}
+
+.case-facts dt {
+  font-size: 11px;
+  color: #626262;
+  margin: 18px 0 6px;
+}
+
+.case-facts dd {
+  font: 400 14px/1.65 var(--sans);
+  color: #2d2d2d;
+}
+
+.case-facts h2 {
+  font-size: 11px;
+  margin-top: 31px;
+}
+
+.tech-list {
+  gap: 7px;
+}
+
+.tech-list li {
+  padding: 6px 9px;
+  font-size: 11px;
+  color: #3d3d3d;
+}
+
+.case-facts ol li {
+  font-size: 13px;
+  line-height: 1.5;
+  padding: 11px 0;
+}
+
+.case-facts ol a {
+  display: block;
+  min-height: 24px;
+}
+
+.case-overview {
+  padding: 68px 0 56px;
+  max-width: 740px;
+}
+
+.case-overview h2 {
+  font: 400 38px/1.05 var(--script);
+  margin: 15px 0;
+}
+
+.case-overview>p:not(.eyebrow) {
+  font: 400 16px/1.86 var(--sans);
+  color: #3d3d3d;
+}
+
+.case-overview a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  font: 400 22px var(--script);
+}
+
+.feature-section {
+  grid-template-columns: minmax(200px, 30%) minmax(0, 1fr);
+  gap: 5%;
+  padding: 56px 0 74px;
+}
+
+.feature-num {
+  font-size: 11px;
+  color: #5b5b5b;
+  margin-bottom: 13px;
+}
+
+.feature-section h2 {
+  font: 400 37px/1.03 var(--script);
+}
+
+.feature-section>p {
+  font: 400 14px/1.85 var(--sans);
+  color: #444;
+  max-width: 310px;
+  margin-top: 0;
+}
+
+.feature-gallery {
+  gap: 18px;
+}
+
+.feature-gallery figure {
+  padding: 12px 12px 14px;
+  border-color: #d6d6d6;
+  box-shadow: 3px 4px 0 #ececec;
+}
+
+.feature-gallery img,
+.feature-gallery video {
+  background: #fff;
+}
+
+.feature-gallery figcaption {
+  font: 400 12px/1.6 var(--sans);
+  color: #484848;
+  margin-top: 10px;
+}
+
+.external-demo a {
+  font: 400 21px var(--script);
+  padding: 10px 18px;
+  min-height: 44px;
+}
+
+.callout {
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.next-project {
+  border-width: 1px;
+  margin: 12px 0 75px;
+}
+
+.next-project a {
+  padding: 19px 12px;
+  min-height: 92px;
+}
+
+.next-project small {
+  font-size: 11px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.next-project strong,
+.next-project b {
+  font: 400 23px/1.1 var(--script);
+}
+
+.next-project a:hover strong {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Contact: an email draft, not a pretend network form. */
+.contact-layout {
+  grid-template-columns: 39% 1fr;
+  gap: 5%;
+  min-height: 650px;
+  padding-top: 70px;
+}
+
+.contact-intro h1 {
+  font: 400 clamp(41px, 4vw, 59px)/1.04 var(--script);
+  margin: 20px 0;
+}
+
+.contact-subtitle {
+  font: 400 16px/1.7 var(--sans);
+  max-width: 330px;
+  color: #4b4b4b;
+}
+
+.contact-paper {
+  padding: 36px 35px 38px;
+}
+
+.contact-paper h2 {
+  font: 400 31px var(--script);
+}
+
+.contact-paper fieldset {
+  gap: 22px 24px;
+}
+
+.contact-paper label {
+  font: 500 11px/1.5 var(--sans);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: #353535;
+}
+
+.contact-paper input,
+.contact-paper textarea {
+  font: 400 15px/1.6 var(--sans);
+  padding: 11px 3px;
+  border-bottom-color: #777;
+}
+
+.contact-paper input::placeholder,
+.contact-paper textarea::placeholder {
+  color: #686868;
+  opacity: 1;
+}
+
+.contact-paper button {
+  min-height: 48px;
+  font: 400 24px var(--script);
+}
+
+.form-note,
+.contact-alternative,
+.form-status {
+  font: 400 12px/1.65 var(--sans);
+  color: #555;
+}
+
+.contact-alternative {
+  margin-top: 16px;
+}
+
+.contact-alternative a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+}
+
+.form-status {
+  margin-top: 8px;
+}
+
+/* Wider tablet and mobile: physical metaphor cannot make content spill or clip. */
+@media (max-width:899px) {
+  .app-frame {
+    max-width: none;
+    padding: 0 22px 92px;
+    min-height: 100dvh;
+    border: 0;
+    border-radius: 0;
+    overflow: visible;
+  }
+
+  .site-header {
+    height: 76px;
+  }
+
+  .brand img {
+    width: 44px;
+    height: 44px;
+  }
+
+  .brand strong {
+    font-size: 29px;
+  }
+
+  .mobile-menu summary {
+    min-width: 44px;
+    min-height: 44px;
+    display: grid;
+    place-items: center;
+  }
+
+  .mobile-menu nav {
+    right: 0;
+    z-index: 50;
+    min-width: 190px;
+  }
+
+  .mobile-menu nav a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  .mobile-bottom-nav {
+    height: 66px;
+  }
+
+  .mobile-bottom-nav a {
+    min-width: 88px;
+    min-height: 52px;
+    display: grid;
+    place-items: center;
+    font-size: 24px;
+  }
+
+  .home-layout {
+    padding-top: 26px;
+    min-height: auto;
+  }
+
+  .home-stack {
+    max-width: 550px;
+    margin: 0 auto 28px;
+    padding: 0 12px 14px 0;
+  }
+
+  .profile-paper {
+    padding: 34px 22px 55px;
+    min-height: 585px;
+  }
+
+  .profile-paper h2 {
+    font-size: 39px;
+  }
+
+  .profile-job {
+    font-size: 25px;
+  }
+
+  .profile-paper address {
+    font-size: 22px;
+  }
+
+  .home-next {
+    top: 27px;
+    left: 17px;
+    right: 0;
+    bottom: -6px;
+  }
+
+  .projects-intro {
+    padding-top: 27px;
+  }
+
+  .projects-intro h1 {
+    font: 400 35px/1.08 var(--script);
+    max-width: none;
+  }
+
+  .projects-intro>p:last-child {
+    font-size: 21px;
+    line-height: 1.3;
+    max-width: 540px;
+  }
+
+  .projects-layout {
+    min-height: 690px;
+  }
+
+  .project-stage {
+    max-width: 530px;
+    width: calc(100% - 12px);
+    margin: 46px auto 0;
+    transform: none;
+  }
+
+  .project-paper {
+    height: auto;
+    min-height: 420px;
+    padding: 26px 20px 64px;
+  }
+
+  .project-image {
+    aspect-ratio: 1.9/1;
+  }
+
+  .project-paper h2 {
+    font-size: 27px;
+  }
+
+  .project-summary {
+    font-size: 13px;
+    max-width: 95%;
+  }
+
+  .project-next {
+    top: 14px;
+    bottom: -49px;
+    left: 17px;
+    right: 0;
+    width: auto;
+    padding: 0 18px 10px;
+    align-items: end;
+  }
+
+  .project-next strong {
+    font-size: 21px;
+  }
+
+  .project-index-hint {
+    margin-top: 80px;
+    font-size: 12px;
+  }
+
+  .all-projects {
+    padding-top: 12px;
+  }
+
+  .all-projects .projects-intro h1 {
+    font-size: 35px;
+  }
+
+  .index-grid {
+    gap: 36px;
+    margin-top: 35px;
+  }
+
+  .index-card>p:last-child {
+    font-size: 14px;
+  }
+
+  .case-head {
+    padding-top: 25px;
+  }
+
+  .case-head h1 {
+    font-size: 52px;
+  }
+
+  .case-head>p:nth-child(3) {
+    font-size: 15px;
+  }
+
+  .case-opening {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .case-hero img {
+    max-height: 530px;
+  }
+
+  .case-hero figcaption {
+    font-size: 12px;
+  }
+
+  .case-facts dl {
+    display: block;
+  }
+
+  .case-facts dt {
+    margin-top: 13px;
+  }
+
+  .case-facts dd {
+    font-size: 14px;
+  }
+
+  .case-overview {
+    padding: 45px 0;
+  }
+
+  .case-overview>p:not(.eyebrow) {
+    font-size: 15px;
+  }
+
+  .case-overview h2 {
+    font-size: 37px;
+  }
+
+  .feature-section {
+    display: block;
+    padding: 40px 0 51px;
+  }
+
+  .feature-section h2 {
+    font-size: 35px;
+  }
+
+  .feature-section>p {
+    font-size: 14px;
+    max-width: 640px;
+    margin: 15px 0 24px;
+  }
+
+  .feature-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .feature-gallery figcaption {
+    font-size: 12px;
+  }
+
+  .next-project {
+    margin: 15px 0 40px;
+  }
+
+  .next-project strong,
+  .next-project b {
+    font-size: 23px;
+  }
+
+  .contact-layout {
+    padding-top: 34px;
+  }
+
+  .contact-intro h1 {
+    font-size: 50px;
+  }
+
+  .contact-subtitle {
+    font-size: 15px;
+  }
+
+  .contact-paper {
+    padding: 28px 23px;
+    margin-top: 28px;
+  }
+
+  .contact-paper fieldset {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-paper fieldset p:last-child {
+    grid-column: 1/-1;
+  }
+}
+
+@media (max-width:599px) {
+  .app-frame {
+    padding-inline: 20px;
+  }
+
+  .site-header {
+    height: 72px;
+  }
+
+  .home-layout {
+    padding-top: 24px;
+  }
+
+  .profile-paper {
+    min-height: 560px;
+    padding: 32px 18px 53px;
+  }
+
+  .profile-paper .paper-index {
+    font-size: 10px;
+  }
+
+  .profile-paper h2 {
+    font-size: 36px;
+  }
+
+  .profile-job {
+    font-size: 23px;
+  }
+
+  .profile-paper address {
+    font-size: 20px;
+  }
+
+  .projects-intro h1 {
+    font-size: 34px;
+  }
+
+  .projects-intro>p:last-child {
+    font-size: 20px;
+  }
+
+  .project-stage {
+    width: calc(100% - 5px);
+    margin-top: 38px;
+  }
+
+  .project-paper {
+    min-height: 375px;
+    padding: 26px 16px 65px;
+  }
+
+  .project-image {
+    aspect-ratio: 1.75/1;
+  }
+
+  .project-paper h2 {
+    font-size: 26px;
+  }
+
+  .paper-number,
+  .paper-index {
+    font-size: 10px;
+  }
+
+  .project-next strong {
+    font-size: 20px;
+  }
+
+  .project-index-hint {
+    margin-top: 77px;
+  }
+
+  .index-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .index-card h2 {
+    font-size: 27px;
+  }
+
+  .case-head h1 {
+    font-size: 48px;
+  }
+
+  .case-overview h2 {
+    font-size: 34px;
+  }
+
+  .feature-section h2 {
+    font-size: 33px;
+  }
+
+  .feature-gallery {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .contact-intro h1 {
+    font-size: 45px;
+  }
+
+  .contact-paper fieldset {
+    display: block;
+  }
+
+  .contact-paper fieldset p {
+    margin-bottom: 20px;
+  }
+
+  .next-project a {
+    min-height: 84px;
+    padding: 15px 10px;
+  }
+
+  .next-project strong,
+  .next-project b {
+    font-size: 23px;
+  }
+}
+
+@media (max-width:370px) {
+  .app-frame {
+    padding-inline: 16px;
+  }
+
+  .brand strong {
+    font-size: 27px;
+  }
+
+  .project-paper {
+    padding-inline: 14px;
+  }
+
+  .project-paper h2 {
+    font-size: 25px;
+  }
+
+  .project-summary {
+    font-size: 12px;
+  }
+
+  .profile-paper address {
+    font-size: 18px;
+  }
+
+  .case-head h1 {
+    font-size: 43px;
+  }
+}
+
+@media (hover:none) {
+
+  .project-image img,
+  .index-preview img {
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .project-image img,
+  .index-preview img {
+    transition: none;
+  }
+}
+
+/* Native accessible lightbox, using dialog + button (no decorative wrappers). */
+.image-open {
+  appearance: none;
+  position: relative;
+  display: block;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  width: 100%;
+  cursor: zoom-in;
+  text-align: left;
+}
+
+.image-open img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.image-open::after {
+  content: '↗ Enlarge';
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  background: rgba(255, 255, 255, .96);
+  color: #222;
+  border: 1px solid #d4d4d4;
+  padding: 5px 9px;
+  font: 500 10px var(--sans);
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+
+.image-open:hover::after,
+.image-open:focus-visible::after {
+  opacity: 1;
+}
+
+.image-dialog {
+  border: 1px solid #bdbdbd;
+  background: #fff;
+  color: #222;
+  max-width: min(96vw, 1100px);
+  max-height: 92dvh;
+  width: max-content;
+  padding: 52px 20px 20px;
+  box-shadow: 0 10px 70px #0004;
+}
+
+.image-dialog::backdrop {
+  background: rgba(0, 0, 0, .75);
+}
+
+.image-dialog-close {
+  position: absolute;
+  top: 9px;
+  right: 16px;
+  min-width: 70px;
+  min-height: 34px;
+  border: 1px solid #bbb;
+  background: #fff;
+  cursor: pointer;
+  font: 500 12px var(--sans);
+}
+
+.image-dialog figure {
+  margin: 0;
+  max-width: 100%;
+}
+
+.image-dialog img {
+  max-height: calc(92dvh - 130px);
+  object-fit: contain;
+  width: auto;
+  margin: auto;
+}
+
+.image-dialog figcaption {
+  font: 400 12px/1.6 var(--sans);
+  text-align: center;
+  color: #555;
+  margin-top: 9px;
+}
+
+@media (hover:none) {
+  .image-open::after {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  .image-open::after {
+    transition: none;
+  }
+}
+
+/* Contrast floor for small print, navigation and progress indicators. */
+.paper-index,
+.project-date,
+.site-footer,
+.site-footer small,
+.projects-eyebrow small,
+.case-facts ol small,
+.form-note {
+  color: #555;
+}
+
+.index-card a:focus-visible,
+.project-paper h2 a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* Profile chapter: existing paper dimensions are unchanged. */
+.cv-paper {
+  display: flex;
+  flex-direction: column;
+  height: 650px;
+  box-sizing: border-box;
+  overflow: visible;
+}
+
+.cv-paper .notebook-heading {
+  flex-shrink: 0;
+}
+
+.cv-title {
+  font: 400 29px/1.1 var(--script);
+  margin: 8px 0 13px;
+}
+
+.cv-entries {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 13px;
+}
+
+.cv-entries li {
+  border-top: 1px solid #e2e2e2;
+  padding-top: 10px;
+}
+
+.cv-entries li:first-child {
+  border: 0;
+  padding-top: 0;
+}
+
+.cv-entries header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.cv-entries h3,
+.cv-skills h3,
+.cv-referees h3 {
+  font: 600 13px/1.3 var(--sans);
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.cv-entries time {
+  font: 500 10px/1.3 var(--sans);
+  color: #555;
+  white-space: nowrap;
+}
+
+.cv-entries p {
+  font: 400 11.5px/1.45 var(--sans);
+  color: #333;
+  margin: 4px 0 0;
+}
+
+.cv-entries .cv-place {
+  font-weight: 500;
+  color: #555;
+}
+
+.cv-entries strong,
+.cv-referees strong {
+  font-weight: 600;
+}
+
+.cv-skills h3,
+.cv-referees h3 {
+  font-size: 14px;
+  margin: 0 0 10px;
+}
+
+.cv-skills dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  column-gap: 12px;
+  row-gap: 10px;
+}
+
+.cv-skills dt {
+  font: 600 11px/1.4 var(--sans);
+  color: #333;
+}
+
+.cv-skills dd {
+  font: 400 11.5px/1.45 var(--sans);
+  margin: 0;
+  color: #444;
+}
+
+.cv-referees {
+  border-top: 1px solid #ddd;
+  margin-top: 21px;
+  padding-top: 16px;
+}
+
+.cv-referees address {
+  font: 400 11.5px/1.4 var(--sans);
+}
+
+.cv-referees address p {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+  margin: 0 0 9px;
+}
+
+.cv-referees address a {
+  overflow-wrap: anywhere;
+  text-decoration: underline;
+}
+
+.cv-paper :is(a, button):focus-visible {
+  outline: 2px solid #222;
+  outline-offset: 3px;
+}
+
+@media (max-width:899px) {
+  .cv-paper {
+    height: 590px;
+  }
+
+  .cv-entries {
+    gap: 11px;
+  }
+
+  .cv-entries h3 {
+    font-size: 12px;
+  }
+
+  .cv-entries p {
+    font-size: 11px;
+  }
+}
+
+@media (max-width:410px) {
+  .cv-paper {
+    height: 590px;
+  }
+
+  .cv-entries header {
+    flex-wrap: wrap;
+    gap: 3px;
+  }
+
+  .cv-title {
+    font-size: 26px;
+  }
+
+  .cv-entries {
+    gap: 9px;
+  }
+
+  .cv-entries li {
+    padding-top: 8px;
+  }
+
+  .cv-entries p {
+    font-size: 10.5px;
+    line-height: 1.36;
+  }
+
+  .cv-skills dl {
+    grid-template-columns: 83px 1fr;
+    gap: 9px;
+  }
+
+  .cv-skills dt,
+  .cv-skills dd {
+    font-size: 10.5px;
+  }
+}
+
+
+/* Profile notebook refinements: visually small fold, reliably unobstructed heading.
+   Previous CSS used min-width:48px, which overrode --fold-size:36px. */
+.cv-paper .page-prev {
+  --fold-size: 28px;
+  width: 28px;
+  height: 28px;
+  min-width: 0;
+  min-height: 0;
+}
+
+.cv-paper .notebook-heading {
+  padding-left: 24px;
+  min-height: 30px;
+  align-items: center;
+  gap: 12px;
+}
+
+.cv-paper .paper-number {
+  min-width: 0;
+  line-height: 1.35;
+}
+
+.cv-paper .paper-index {
+  flex-shrink: 0;
+}
+
+/* Consistent and calm vertical rhythm within the unchanged paper dimensions. */
+.cv-paper .cv-title {
+  margin: 10px 0 18px;
+  line-height: 1.13;
+}
+
+.cv-paper .cv-entries {
+  gap: 15px;
+}
+
+.cv-paper .cv-entries li {
+  padding-top: 12px;
+}
+
+.cv-paper .cv-entries li:first-child {
+  padding-top: 0;
+}
+
+.cv-paper .cv-entries header {
+  align-items: start;
+  gap: 8px 14px;
+}
+
+.cv-paper .cv-entries h3 {
+  line-height: 1.4;
+}
+
+.cv-paper .cv-entries p {
+  line-height: 1.55;
+  margin-top: 5px;
+}
+
+.cv-paper .cv-skills dl {
+  row-gap: 12px;
+}
+
+.cv-paper .cv-skills dd {
+  line-height: 1.55;
+}
+
+.cv-paper .cv-referees {
+  margin-top: 23px;
+  padding-top: 17px;
+}
+
+.cv-paper .cv-referees address p {
+  margin-bottom: 11px;
+}
+
+/* On narrower screens we keep the fold small and reserve header space. */
+@media (max-width:899px) {
+  .cv-paper .page-prev {
+    --fold-size: 26px;
+    width: 26px;
+    height: 26px;
+  }
+
+  .cv-paper .notebook-heading {
+    padding-left: 27px;
+    min-height: 28px;
+  }
+
+  .cv-paper .cv-title {
+    margin: 8px 0 15px;
+  }
+
+  .cv-paper .cv-entries {
+    gap: 11px;
+  }
+
+  .cv-paper .cv-entries li {
+    padding-top: 9px;
+  }
+
+  .cv-paper .cv-entries p {
+    line-height: 1.46;
+    margin-top: 4px;
+  }
+
+  .cv-paper .cv-skills dl {
+    row-gap: 9px;
+  }
+
+  .cv-paper .cv-referees {
+    margin-top: 17px;
+    padding-top: 12px;
+  }
+
+  .cv-paper .cv-referees address p {
+    margin-bottom: 8px;
+  }
+}
+
+@media (max-width:410px) {
+  .cv-paper .page-prev {
+    --fold-size: 23px;
+    width: 23px;
+    height: 23px;
+  }
+
+  .cv-paper .notebook-heading {
+    padding-left: 25px;
+    gap: 6px;
+  }
+
+  .cv-paper .paper-number {
+    font-size: 9px;
+    letter-spacing: .025em;
+  }
+
+  .cv-paper .cv-entries {
+    gap: 8px;
+  }
+
+  .cv-paper .cv-entries li {
+    padding-top: 7px;
+  }
+
+  .cv-paper .cv-entries p {
+    line-height: 1.39;
+    margin-top: 3px;
+  }
+}
+
+
+/* Consistent previous-page folded corner on all notebook pages.
+   The original min-width/min-height (48px) prevented --fold-size from taking effect. */
+.profile-paper:not(.cv-paper) .page-prev,
+.project-paper .page-prev {
+  --fold-size: 28px;
+  width: 28px;
+  height: 28px;
+  min-width: 0;
+  min-height: 0;
+}
+
+.profile-paper:not(.cv-paper) .notebook-heading,
+.project-paper .notebook-heading {
+  padding-left: 37px;
+  min-height: 30px;
+  gap: 12px;
+  align-items: center;
+}
+
+.profile-paper:not(.cv-paper) .paper-number,
+.project-paper .paper-number {
+  min-width: 0;
+  line-height: 1.35;
+}
+
+.profile-paper:not(.cv-paper) .paper-index,
+.project-paper .paper-index {
+  flex-shrink: 0;
+}
+
+@media (max-width:899px) {
+
+  .profile-paper:not(.cv-paper) .page-prev,
+  .project-paper .page-prev {
+    --fold-size: 26px;
+    width: 26px;
+    height: 26px;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .profile-paper:not(.cv-paper) .notebook-heading,
+  .project-paper .notebook-heading {
+    padding-left: 34px;
+    min-height: 28px;
+  }
+}
+
+@media (max-width:410px) {
+
+  .profile-paper:not(.cv-paper) .page-prev,
+  .project-paper .page-prev {
+    --fold-size: 23px;
+    width: 23px;
+    height: 23px;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .profile-paper:not(.cv-paper) .notebook-heading,
+  .project-paper .notebook-heading {
+    padding-left: 30px;
+    gap: 6px;
+  }
+}
+
+
+/* ================================================
+   DESIGN ARCHIVE / shared paper-notebook extension
+   Only Google Caveat is used throughout the site.
+================================================ */
+
+:root {
+  --script: 'Caveat';
+  --sans: 'Caveat';
+}
+
+html,
+body,
+button,
+input,
+textarea,
+select,
+option {
+  font-family: 'Caveat';
+}
+
+.desktop-nav,
+.mobile-bottom-nav {
+  gap: clamp(10px, 2vw, 27px);
+}
+
+.mobile-bottom-nav {
+  justify-content: space-around;
+}
+
+.mobile-bottom-nav a {
+  min-width: 0;
+  flex: 1 1 25%;
+  text-align: center;
+}
+
+/* Design project notebook: an extension of the existing project sheets. */
+.design-layout {
+  min-height: 0;
+  padding-bottom: 30px;
+}
+
+.design-layout .projects-intro {
+  max-width: 610px;
+}
+
+.design-layout .project-stage {
+  margin-top: 39px;
+}
+
+.design-paper {
+  min-height: 512px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-bottom: 79px;
+}
+
+.design-paper .notebook-heading {
+  flex: 0 0 auto;
+  margin-bottom: 8px;
+}
+
+.design-paper .project-image {
+  background-color: #f8f8f8;
+  height: 225px;
+  aspect-ratio: auto;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.design-paper .project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  background-color: #f8f8f8;
+}
+
+.design-paper .project-date {
+  margin-top: 7px;
+}
+
+.design-paper h2 {
+  font-size: clamp(27px, 3vw, 36px);
+  line-height: 1.04;
+}
+
+.design-paper .project-summary {
+  margin-top: 4px;
+  font-size: 19px;
+  line-height: 1.2;
+  max-width: 95%;
+}
+
+.design-open {
+  display: inline-flex;
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 8px 0 0;
+  color: #1c1c1c;
+  font-size: 24px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+
+.design-paper .page-fold {
+  z-index: 10;
+}
+
+.design-paper .page-prev {
+  z-index: 10;
+}
+
+.design-layout .project-next {
+  background: #f6f6f6;
+}
+
+.design-layout .project-index-hint {
+  margin-top: 38px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.design-unavailable {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 160px;
+  width: 100%;
+  background: #f7f7f7;
+  border: 1px dashed #b9b9b9;
+  color: #777;
+  padding: 18px;
+  text-align: center;
+}
+
+.design-unavailable strong {
+  font-weight: 600;
+  font-size: 30px;
+  color: #242424;
+}
+
+.design-unavailable small {
+  font-size: 15px;
+  max-width: 260px;
+}
+
+.design-directory {
+  margin: 48px auto 20px;
+  padding: 26px 0 24px;
+  max-width: 1000px;
+  border-top: 1px solid #d1d1d1;
+}
+
+.design-directory h2 {
+  font-size: 34px;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.design-directory ol {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 26px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.design-directory li {
+  border-bottom: 1px solid #dedede;
+  min-width: 0;
+}
+
+.design-directory a {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-height: 44px;
+  padding: 6px 0 7px;
+  font-size: 21px;
+  overflow-wrap: anywhere;
+}
+
+.design-directory a:hover,
+.design-directory a:focus-visible {
+  text-decoration: underline;
+}
+
+.design-directory small {
+  font-size: 13px;
+  color: #888;
+  flex: 0 0 auto;
+}
+
+/* Design detail: preserve the existing case-study grammar. */
+.design-case .case-head>p:nth-child(3) {
+  font-size: 21px;
+  line-height: 1.35;
+}
+
+.design-case .case-hero img {
+  max-height: 620px;
+  object-fit: contain;
+}
+
+.design-case .case-facts h2 {
+  margin-top: 28px;
+  font-size: 21px;
+  font-weight: 600;
+}
+
+.design-case .case-facts nav {
+  margin-top: 10px;
+  display: grid;
+  gap: 10px;
+}
+
+.design-case .case-facts nav a {
+  font-size: 22px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.design-case .case-overview>p:last-of-type {
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.design-case .case-overview>a {
+  font-size: 21px;
+}
+
+.design-notes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+  border-top: 1px solid #ddd;
+  padding-top: 30px;
+  margin-top: 55px;
+}
+
+.design-note {
+  border: 1px solid #ddd;
+  padding: 20px 23px;
+  box-shadow: 3px 4px 0 #efefef;
+}
+
+.design-note h3 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.1;
+  margin: 10px 0;
+}
+
+.design-note>p:last-child {
+  font-size: 22px;
+  line-height: 1.25;
+}
+
+.design-gallery-section {
+  margin-top: 65px;
+}
+
+.design-gallery-section h2 {
+  font: 500 40px/1.1 var(--script);
+  margin: 8px 0 22px;
+}
+
+.design-gallery-section .feature-gallery {
+  grid-column: auto;
+  grid-row: auto;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.design-gallery-section .feature-gallery a {
+  display: block;
+}
+
+.design-gallery-section .feature-gallery img {
+  max-height: 570px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.design-gallery-section .feature-gallery figcaption {
+  font-size: 18px;
+}
+
+.design-detail-nav {
+  border-top: 1px solid #ddd;
+  margin: 52px 0 0;
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.design-detail-nav a {
+  font-size: 23px;
+}
+
+.design-detail-nav a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 899px) {
+  .design-layout .project-stage {
+    margin-top: 38px;
+  }
+
+  .design-paper {
+    min-height: 520px;
+    padding-bottom: 75px;
+  }
+
+  .design-paper .project-image {
+    height: 210px;
+  }
+
+  .design-paper .project-summary {
+    font-size: 19px;
+  }
+
+  .design-layout .project-index-hint {
+    margin-top: 80px;
+  }
+
+  .design-directory {
+    margin-top: 38px;
+  }
+
+  .design-directory ol {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .design-notes {
+    grid-template-columns: 1fr;
+  }
+
+  .design-gallery-section .feature-gallery {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 599px) {
+  .mobile-bottom-nav a {
+    font-size: 21px;
+  }
+
+  .design-paper {
+    min-height: 474px;
+    padding-bottom: 69px;
+  }
+
+  .design-paper .project-image {
+    height: 175px;
+  }
+
+  .design-paper h2 {
+    font-size: 30px;
+  }
+
+  .design-paper .project-summary {
+    font-size: 18px;
+  }
+
+  .design-open {
+    font-size: 23px;
+  }
+
+  .design-directory ol {
+    grid-template-columns: 1fr;
+  }
+
+  .design-directory h2 {
+    font-size: 30px;
+  }
+
+  .design-note h3 {
+    font-size: 30px;
+  }
+
+  .design-case .case-head>p:nth-child(3) {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 370px) {
+  .mobile-bottom-nav a {
+    font-size: 18px;
+  }
+
+  .design-paper .project-image {
+    height: 158px;
+  }
+
+  .design-paper h2 {
+    font-size: 27px;
+  }
+}
+
+/* Persistent design index: available on every design notebook card. */
+.design-directory a[aria-current="page"] {
+  color: #111;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+
+.design-directory a[aria-current="page"]::after {
+  content: "← here";
+  margin-left: auto;
+  white-space: nowrap;
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.design-directory a:focus-visible {
+  outline: 2px solid #1b1b1b;
+  outline-offset: 3px;
+}
+
+/* Full VIXX ideation presentation: retain the source page order and proportions. */
+.siren-concept-gallery .feature-gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  max-width: 880px;
+  gap: 28px;
+  margin-inline: auto;
+}
+
+.siren-gallery-intro {
+  color: #555;
+  font-size: 21px;
+  line-height: 1.35;
+  margin: 0 0 26px;
+}
+
+.siren-concept-gallery .siren-source-figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.siren-concept-gallery .siren-source-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid #dedede;
+}
+
+.siren-concept-gallery .siren-source-figure figcaption {
+  padding-top: 8px;
+  color: #555;
+  font-size: 18px;
+}
+
+.siren-album-crosslink a {
+  display: inline-block;
+  margin-top: 18px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+
+@media (max-width: 599px) {
+  .siren-concept-gallery .feature-gallery {
+    gap: 21px;
+  }
+
+  .siren-gallery-intro {
+    font-size: 19px;
+  }
+
+  .siren-concept-gallery .siren-source-figure figcaption {
+    font-size: 16px;
+  }
+}
+
+/* Preserve full original artwork in the expanded Wix galleries. */
+.design-gallery-section .feature-gallery figure {
+  margin: 0;
+  min-width: 0;
+}
+
+.design-gallery-section .feature-gallery figure a {
+  display: block;
+  cursor: zoom-in;
+}
+
+.design-gallery-section .feature-gallery figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid #dedede;
+}
+
+.design-gallery-section .feature-gallery figcaption {
+  margin-top: 7px;
+  color: #555;
+  font-family: "Caveat";
+}
+
+/* Keep adjacent design detail links on opposite sides at every breakpoint. */
+.design-detail-nav {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  column-gap: clamp(12px, 4vw, 44px);
+}
+
+.design-detail-nav a {
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.design-detail-nav a:first-child {
+  justify-self: start;
+  text-align: left;
+}
+
+.design-detail-nav a:last-child {
+  justify-self: end;
+  text-align: right;
+}
+
+/* ==================================
+   Mobile Profile Introduction
+================================== */
+
+/* Hide mobile introduction on desktop */
+.mobile-profile-intro {
+  display: none;
+}
+
+/* Tablet and mobile */
+@media (max-width: 899px) {
+
+  .page-home .mobile-profile-intro {
+      display: block;
+      margin: 16px 0 32px;
+  }
+
+  .page-home .mobile-profile-intro h1 {
+      font: 400 clamp(32px, 7vw, 44px)/1.1 var(--script);
+      margin: 0 0 16px;
+  }
+
+  .page-home .mobile-profile-intro .intro-role {
+      font: 400 25px/1.2 var(--script);
+      margin: 0 0 22px;
+      max-width: 100%;
+  }
+
+  .page-home .mobile-profile-intro .intro-about {
+      font: 400 17px/1.6 var(--sans);
+      color: #4c4c4c;
+      margin: 0;
+      max-width: 100%;
+  }
+
+  /* Prevent duplicate name and job title */
+  .page-home .profile-paper > h2,
+  .page-home .profile-paper > .profile-job {
+      display: none;
+  }
+}
+
+/* A real sheet leaves the stack, or returns to its former place. */
+.stack-transition-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 12000;
+  overflow: hidden;
+  pointer-events: none;
+  perspective: 1500px;
+  isolation: isolate;
+}
+
+.stack-flight-sheet {
+  position: fixed;
+  display: block;
+  transform-origin: 50% 16%;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+
+.stack-flight-under {
+  z-index: 1;
+}
+
+.stack-flight-over {
+  z-index: 2;
+  filter: drop-shadow(9px 14px 17px rgb(0 0 0 / 19%));
+}
+
+.stack-render-paper {
+  width: 100%;
+  height: 100%;
+  min-height: 0 !important;
+  max-height: 100%;
+  margin: 0 !important;
+  box-sizing: border-box;
+  overflow: hidden;
+  pointer-events: none;
+  transform: none !important;
+  box-shadow: 5px 5px 0 #dfdfdf, 5px 5px 0 1px #c9c9c9;
+}
+
+.stack-render-paper img {
+  object-fit: cover;
+}
+
+.stack-source-hidden {
+  visibility: hidden !important;
+}
+
+.stack-transitioning {
+  overscroll-behavior: none;
+}
+
+.stack-placeholder-paper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 30px;
+  padding: clamp(22px, 5vw, 48px);
+  background: #fff;
+}
+
+.stack-placeholder-eyebrow {
+  margin: 0;
+  color: #666;
+  font: 500 11px/1.5 var(--sans);
+  letter-spacing: .09em;
+}
+
+.stack-placeholder-paper img {
+  display: block;
+  width: min(100%, 420px);
+  max-height: 62%;
+  object-fit: contain;
+  margin-inline: auto;
+  filter: grayscale(1);
+}
+
+.stack-placeholder-paper h2 {
+  color: #181818;
+  font: 500 clamp(28px, 4vw, 45px)/1.1 var(--script);
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stack-transition-layer {
+    display: none;
+  }
+}
