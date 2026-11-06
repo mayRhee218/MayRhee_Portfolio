@@ -1,0 +1,74 @@
+# AI-training crawler opt-out for May Rhee Portfolio.
+# NOTICE: For a GitHub Pages project site, crawlers consult
+# https://mayrhee218.github.io/robots.txt (domain root),
+# NOT /MayRhee_Portfolio/robots.txt. Publish the equivalent
+# directives at the domain root for standard robots enforcement.
+#
+# Keep search and user-initiated assistant access available.
+# This file expresses no permission for AI model training.
+
+User-agent: GPTBot
+Disallow: /MayRhee_Portfolio/
+
+User-agent: ClaudeBot
+Disallow: /MayRhee_Portfolio/
+
+User-agent: Claude-User
+Disallow: /MayRhee_Portfolio/
+
+User-agent: Claude-SearchBot
+Disallow: /MayRhee_Portfolio/
+
+User-agent: Google-Extended
+Disallow: /MayRhee_Portfolio/
+
+User-agent: CCBot
+Disallow: /MayRhee_Portfolio/
+
+User-agent: Bytespider
+Disallow: /MayRhee_Portfolio/
+
+User-agent: Amazonbot
+Disallow: /MayRhee_Portfolio/
+
+User-agent: Applebot-Extended
+Disallow: /MayRhee_Portfolio/
+
+User-agent: FacebookBot
+Disallow: /MayRhee_Portfolio/
+
+User-agent: meta-externalagent
+Disallow: /MayRhee_Portfolio/
+
+User-agent: meta-externalfetcher
+Disallow: /MayRhee_Portfolio/
+
+User-agent: PerplexityBot
+Disallow: /MayRhee_Portfolio/
+
+User-agent: Perplexity-User
+Disallow: /MayRhee_Portfolio/
+
+User-agent: cohere-ai
+Disallow: /MayRhee_Portfolio/
+
+User-agent: Diffbot
+Disallow: /MayRhee_Portfolio/
+
+User-agent: ImagesiftBot
+Disallow: /MayRhee_Portfolio/
+
+User-agent: Timpibot
+Disallow: /MayRhee_Portfolio/
+
+User-agent: Omgilibot
+Disallow: /MayRhee_Portfolio/
+
+User-agent: Omgili
+Disallow: /MayRhee_Portfolio/
+
+User-agent: YouBot
+Disallow: /MayRhee_Portfolio/
+
+# AI search and user-triggered assistant fetchers are not banned here.
+# No robots.txt directive can prevent downloading from a public GitHub repository.
