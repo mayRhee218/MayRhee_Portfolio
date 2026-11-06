@@ -29,9 +29,13 @@ jobs:
           mkdir -p _site
           unzip -q portfolio_site.zip -d _site
           cp ./*.html ./*.css ./*.js _site/
+          cp robots.txt _site/robots.txt
+          # Non-standard AI-use opt-out metadata (honoured only voluntarily).
+          sed -i 's@</head>@  <meta name="robots" content="noai, noimageai">\n</head>@I' _site/*.html
           touch _site/.nojekyll
           test -f _site/index.html
           test -f _site/assets/profile/Portrait.jpg
+          test -f _site/robots.txt
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
