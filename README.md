@@ -1,23 +1,21 @@
 # May Rhee — Portfolio
 
-An interactive paper-stacking portfolio built with static HTML, CSS and JavaScript.
+An interactive paper-stacking portfolio built with static HTML, CSS, and JavaScript.
 
-## Preview locally
+**Copyright and AI use:** © 2026 May Rhee. Original code, text, images, illustrations, and other original assets are all rights reserved. No permission is granted to scrape, copy, or use May Rhee's original materials for AI training, fine-tuning, model evaluation, or AI datasets. See [AI Training and Content Use Policy](AI-USE-POLICY.md). Third-party works retain their respective rights.
 
-From the project directory, start a local static web server:
+## Local preview
+
+From the source directory, start a local static server:
 
 ```bash
 python3 -m http.server 8000
 ```
 
-Open `http://localhost:8000/` in a browser.
+## Deployment
 
-## Publish with GitHub Pages
+GitHub Pages automatically deploys from the GitHub Actions workflow at `.github/workflows/deploy.yml` on every push to `main`. The workflow extracts `portfolio_site.zip`, overlays root HTML/CSS/JS files, publishes `robots.txt`, and inserts voluntary AI-use opt-out metadata into HTML files.
 
-In this repository, open **Settings → Pages**. Under **Build and deployment**, choose **Deploy from a branch**, select **main** and **/(root)**, and save. GitHub Pages automatically republishes the site after updates to `main`.
+Site: https://mayrhee218.github.io/MayRhee_Portfolio/
 
-When published as a project site, the expected URL is:
-
-`https://mayrhee218.github.io/MayRhee_Portfolio/`
-
-GitHub Pages availability depends on your plan and repository visibility. A private repository may require a paid GitHub plan; the published site can still be publicly accessible. Review the content before enabling publication.
+**Important limitation:** For the project-site URL above, standards-compliant crawlers read `https://mayrhee218.github.io/robots.txt`, **not** `/MayRhee_Portfolio/robots.txt`. To put crawler instructions into effect, matching directives must be deployed at that domain root (normally the separate `mayRhee218.github.io` repository). Public GitHub source code remains downloadable regardless of robots directives. Strong technical protection requires restricting public access.
