@@ -51,11 +51,18 @@
     'contact.html': ['Contact', 'assets/original/may-rhee-mark.png']
   };
 
+  // Use the project root as Bio's canonical URL to avoid separate / and /index.html caches.
+  function canonicalHref(href) {
+    const url = new URL(href, window.location.href);
+    if (url.pathname.endsWith('/index.html')) url.pathname = url.pathname.slice(0, -'index.html'.length);
+    return url.href;
+  }
+
   function loadNeighbor(href) {
     if (!href) return Promise.resolve(null);
-    const url = new URL(href, window.location.href);
+    const url = new URL(canonicalHref(href));
     if (templates.has(url.href)) return templates.get(url.href);
-    const request = fetch(url.href, { credentials: 'same-origin', cache: 'force-cache' })
+    const request = fetch(url.href, { credentials: 'same-origin', cache: 'no-cache' })
       .then(response => response.ok ? response.text() : null)
       .then(html => {
         if (!html) return null;
@@ -146,7 +153,7 @@
     turning = true;
     recordTurn();
     if (reducedMotion.matches || !Element.prototype.animate) {
-      window.location.assign(href);
+      window.location.assign(canonicalHref(href));
       return;
     }
 
@@ -198,7 +205,7 @@
       Promise.all(motions.map(animation => animation.finished.catch(() => null))),
       new Promise(resolve => window.setTimeout(resolve, turnDuration + 180))
     ]);
-    window.location.assign(href);
+    window.location.assign(canonicalHref(href));
   }
 
   [previousLink, nextLink].forEach(link => {
