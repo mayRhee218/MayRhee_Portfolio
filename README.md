@@ -6,16 +6,15 @@ An interactive paper-stacking portfolio built with static HTML, CSS, and JavaScr
 
 ## Local preview
 
-From the source directory, first extract the original media assets (needed locally because they are stored in `portfolio_site.zip` (do not delete that archive until its media has been committed to the repository)), then start a local static server:
-
-```bash
-unzip -oq portfolio_site.zip 'assets/*' -d .
-python3 -m http.server 8000
-```
+1. Download or clone the GitHub repository.
+2. Open the repository folder in Visual Studio Code.
+3. Install the [Live Server extension](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) if needed.
+4. In the VS Code Explorer, right-click the root `index.html` and select **Open with Live Server**.
+5. View the portfolio in the browser with an active internet connection. Project media are served directly from `assets/`, and external artwork, fonts, and links use the internet.
 
 ## Deployment
 
-GitHub Pages automatically deploys from the GitHub Actions workflow at `.github/workflows/deploy.yml` on every push to `main`. The workflow extracts only the `assets/` files from `portfolio_site.zip`, publishes the canonical HTML files from `bio-pages/`, `project-pages/`, and `design-pages/`, and copies the site's single `styles.css` and the scripts in `javaScript/`. The crawler policy files live in `anti-ai-crawler/`; the deployment copies its `robots.txt` to the site's published root and inserts voluntary AI-use opt-out metadata into every HTML page. The root `index.html` redirects visitors to `bio-pages/index.html`.
+GitHub Pages automatically deploys from the GitHub Actions workflow at `.github/workflows/deploy.yml` on every push to `main`. The workflow publishes the tracked `assets/` directory, the canonical HTML files from `bio-pages/`, `project-pages/`, and `design-pages/`, the site's single `styles.css`, and the scripts in `javaScript/`. The crawler policy files live in `anti-ai-crawler/`; the deployment copies its `robots.txt` to the site's published root and inserts voluntary AI-use opt-out metadata into every HTML page. The root `index.html` redirects visitors to `bio-pages/index.html`.
 
 Site: https://mayrhee218.github.io/MayRhee_Portfolio/
 

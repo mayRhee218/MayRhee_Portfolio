@@ -27,10 +27,8 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir -p _site
-          # The archive contains older HTML/CSS snapshots: extract assets ONLY.
-          unzip -q portfolio_site.zip 'assets/*' -d _site
-          cp ./*.html ./*.css _site/
-          cp -R bio-pages project-pages design-pages javaScript _site/
+          cp ./*.html ./*.css favicon.ico _site/
+          cp -R assets bio-pages project-pages design-pages javaScript _site/
           cp anti-ai-crawler/robots.txt _site/robots.txt
           # Non-standard AI-use opt-out metadata (honoured only voluntarily).
           find _site -type f -name '*.html' -exec sed -i 's@</head>@  <meta name="robots" content="noai, noimageai">\n</head>@I' {} +
