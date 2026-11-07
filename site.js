@@ -1,5 +1,5 @@
 /* Keep navigation terminology consistent across desktop, mobile menu, and bottom bar. */
-document.querySelectorAll('nav a[href="index.html"], nav a[href="contact.html"]').forEach(link => {
+document.querySelectorAll('nav a[href]').forEach(link => {
   if (link.textContent.trim() === 'Home') link.textContent = 'Bio';
   if (link.textContent.trim() === 'Contact') link.textContent = 'Guestbook';
 });

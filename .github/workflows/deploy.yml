@@ -27,15 +27,21 @@ jobs:
       - name: Prepare static site
         run: |
           mkdir -p _site
-          unzip -q portfolio_site.zip -d _site
+          # The archive contains older HTML/CSS snapshots: extract assets ONLY.
+          unzip -q portfolio_site.zip 'assets/*' -d _site
           cp ./*.html ./*.css ./*.js _site/
+          cp -R bio-pages project-pages design-pages _site/
           cp robots.txt _site/robots.txt
           # Non-standard AI-use opt-out metadata (honoured only voluntarily).
-          sed -i 's@</head>@  <meta name="robots" content="noai, noimageai">\n</head>@I' _site/*.html
+          find _site -type f -name '*.html' -exec sed -i 's@</head>@  <meta name="robots" content="noai, noimageai">\n</head>@I' {} +
           touch _site/.nojekyll
           test -f _site/index.html
+          test -f _site/bio-pages/index.html
+          test -f _site/project-pages/projects-shakeup.html
+          test -f _site/design-pages/design.html
           test -f _site/assets/profile/Portrait.jpg
           test -f _site/robots.txt
+          test "$(find _site -type f -name '*.css' | wc -l)" -eq 1
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

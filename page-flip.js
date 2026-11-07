@@ -1,6 +1,8 @@
 (() => {
   'use strict';
 
+  // Keep fallback images rooted at the shared assets directory on every nested page.
+  const assetRoot = new URL('.', document.currentScript?.src || window.location.href);
   const corner = document.querySelector('a.page-prev, a.page-fold');
   const paper = corner?.closest('.paper');
   if (!paper) return;
@@ -22,7 +24,7 @@
   });
 
   const preview = {
-    'index.html': ['Profile & Contact', 'assets/original/may-rhee-mark.png'],
+    'index.html': ['Bio & Links', 'assets/original/may-rhee-mark.png'],
     'profile-2.html': ['Professional Experience', 'assets/original/may-rhee-mark.png'],
     'profile-3.html': ['Education', 'assets/original/may-rhee-mark.png'],
     'profile-4.html': ['Certificates & Awards', 'assets/original/may-rhee-mark.png'],
@@ -48,7 +50,7 @@
     'design-makestar.html': ['MakeStar', 'assets/design/fallback-makestar.svg'],
     'design-siren-concept.html': ['SIREN · Concept', 'assets/design/fallback-siren-concept.svg'],
     'design-siren-album.html': ['SIREN · Album Art', 'assets/design/fallback-siren-album.svg'],
-    'contact.html': ['Contact', 'assets/original/may-rhee-mark.png']
+    'contact.html': ['Guestbook', 'assets/original/may-rhee-mark.png']
   };
 
   // Use the project root as Bio's canonical URL to avoid separate / and /index.html caches.
@@ -100,7 +102,7 @@
     article.append(overline);
     if (image) {
       const illustration = document.createElement('img');
-      illustration.src = new URL(image, window.location.href).href;
+      illustration.src = new URL(image, assetRoot).href;
       illustration.alt = '';
       article.append(illustration);
     }

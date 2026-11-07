@@ -6,15 +6,16 @@ An interactive paper-stacking portfolio built with static HTML, CSS, and JavaScr
 
 ## Local preview
 
-From the source directory, start a local static server:
+From the source directory, first extract the original media assets (needed locally because they are stored in `portfolio_site.zip`), then start a local static server:
 
 ```bash
+unzip -oq portfolio_site.zip 'assets/*' -d .
 python3 -m http.server 8000
 ```
 
 ## Deployment
 
-GitHub Pages automatically deploys from the GitHub Actions workflow at `.github/workflows/deploy.yml` on every push to `main`. The workflow extracts `portfolio_site.zip`, overlays root HTML/CSS/JS files, publishes `robots.txt`, and inserts voluntary AI-use opt-out metadata into HTML files.
+GitHub Pages automatically deploys from the GitHub Actions workflow at `.github/workflows/deploy.yml` on every push to `main`. The workflow extracts only the `assets/` files from `portfolio_site.zip`, publishes the canonical HTML files from `bio-pages/`, `project-pages/`, and `design-pages/`, and copies the site's single `styles.css` and JavaScript files. It publishes `robots.txt` and inserts voluntary AI-use opt-out metadata into every HTML page. The root `index.html` redirects visitors to `bio-pages/index.html`.
 
 Site: https://mayrhee218.github.io/MayRhee_Portfolio/
 
