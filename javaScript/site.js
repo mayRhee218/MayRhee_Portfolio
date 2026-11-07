@@ -68,16 +68,3 @@ if (zoomableImages.length && typeof HTMLDialogElement !== 'undefined') {
     });
   }
 }
-
-/* Original Wix artwork is shown online; use a clearly labeled local
-   placeholder if its remote source is unavailable. No page HTML is generated. */
-document.querySelectorAll('img[data-fallback]').forEach(image => {
-  const useFallback = () => {
-    if (image.dataset.fallback && image.src !== new URL(image.dataset.fallback, location.href).href) {
-      image.src = image.dataset.fallback;
-      image.removeAttribute('srcset');
-    }
-  };
-  image.addEventListener('error', useFallback, { once: true });
-  if (image.complete && image.naturalWidth === 0) useFallback();
-});

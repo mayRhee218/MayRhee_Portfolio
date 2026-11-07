@@ -3221,32 +3221,6 @@ option {
   text-align: center;
 }
 
-.design-unavailable {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  min-height: 160px;
-  width: 100%;
-  background: #f7f7f7;
-  border: 1px dashed #b9b9b9;
-  color: #777;
-  padding: 18px;
-  text-align: center;
-}
-
-.design-unavailable strong {
-  font-weight: 600;
-  font-size: 30px;
-  color: #242424;
-}
-
-.design-unavailable small {
-  font-size: 15px;
-  max-width: 260px;
-}
-
 .design-directory {
   margin: 48px auto 20px;
   padding: 26px 0 24px;
@@ -3304,6 +3278,15 @@ option {
 .design-case .case-hero img {
   max-height: 620px;
   object-fit: contain;
+}
+
+.design-video-player {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-height: 200px;
+  aspect-ratio: 16 / 9;
+  border: 0;
 }
 
 .design-case .case-facts h2 {

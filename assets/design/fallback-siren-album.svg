@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 480" role="img" aria-label="Offline artwork placeholder for SIREN · Album Art">
-<rect width="860" height="480" fill="#fafafa"/>
-<path d="M38 38h784v404H38z" fill="none" stroke="#d0d0d0" stroke-width="2"/>
-<path d="M65 80h140 M65 95h95 M65 110h160" stroke="#c4c4c4" stroke-width="2"/>
-<path d="M670 338l66-64 63 64" stroke="#bbb" stroke-width="2" fill="none"/>
-<text x="430" y="225" text-anchor="middle" fill="#222" font-family="Caveat" font-size="74">SIREN · Album Art</text>
-<text x="430" y="280" text-anchor="middle" fill="#777" font-family="Caveat" font-size="32">Album / Graphic</text>
-<text x="430" y="368" text-anchor="middle" fill="#9a9a9a" font-family="Caveat" font-size="26">Original artwork requires an internet connection</text>
-</svg>
