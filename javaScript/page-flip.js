@@ -2,7 +2,7 @@
   'use strict';
 
   // Keep fallback images rooted at the shared assets directory on every nested page.
-  const assetRoot = new URL('.', document.currentScript?.src || window.location.href);
+  const assetRoot = new URL('../', document.currentScript?.src || window.location.href);
   const corner = document.querySelector('a.page-prev, a.page-fold');
   const paper = corner?.closest('.paper');
   if (!paper) return;

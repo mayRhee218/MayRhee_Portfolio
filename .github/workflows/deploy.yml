@@ -29,9 +29,9 @@ jobs:
           mkdir -p _site
           # The archive contains older HTML/CSS snapshots: extract assets ONLY.
           unzip -q portfolio_site.zip 'assets/*' -d _site
-          cp ./*.html ./*.css ./*.js _site/
-          cp -R bio-pages project-pages design-pages _site/
-          cp robots.txt _site/robots.txt
+          cp ./*.html ./*.css _site/
+          cp -R bio-pages project-pages design-pages javaScript _site/
+          cp anti-ai-crawler/robots.txt _site/robots.txt
           # Non-standard AI-use opt-out metadata (honoured only voluntarily).
           find _site -type f -name '*.html' -exec sed -i 's@</head>@  <meta name="robots" content="noai, noimageai">\n</head>@I' {} +
           touch _site/.nojekyll
@@ -41,6 +41,8 @@ jobs:
           test -f _site/design-pages/design.html
           test -f _site/assets/profile/Portrait.jpg
           test -f _site/robots.txt
+          test -f _site/javaScript/page-flip.js
+          test -f _site/javaScript/site.js
           test "$(find _site -type f -name '*.css' | wc -l)" -eq 1
 
       - name: Setup Pages
