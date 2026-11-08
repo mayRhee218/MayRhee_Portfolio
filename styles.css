@@ -207,7 +207,7 @@ strong {
   z-index: 2
 }
 
-/* Both corners share the same folded-paper geometry. Left is a mirrored, smaller version. */
+/* Paper folded parts: Both corners share the same folded-paper geometry. Left is a mirrored, smaller version. */
 .page-fold,
 .page-prev {
   position: absolute;
@@ -496,7 +496,7 @@ strong {
 }
 
 .project-summary {
-  font: 400 12px/1.65 var(--sans);
+  font: 400 15px/1.65 var(--sans);
   color: #777;
   max-width: 88%
 }
@@ -602,7 +602,7 @@ strong {
 }
 
 .case-head>p:last-child {
-  font: 400 14px/1.65 var(--sans);
+  font: 400 16px/1.65 var(--sans);
   color: #777;
   max-width: 680px
 }
@@ -648,7 +648,7 @@ strong {
 }
 
 .case-facts dt {
-  font: 500 10px var(--sans);
+  font: 500 15px var(--sans);
   letter-spacing: .11em;
   color: #888;
   margin: 18px 0 7px
@@ -656,7 +656,7 @@ strong {
 
 .case-facts dd {
   margin: 0;
-  font-size: 12px;
+  font-size: 15px;
   line-height: 1.65
 }
 
@@ -671,11 +671,11 @@ strong {
 .tech-list li {
   border: 1px solid #d0d0d0;
   padding: 5px 8px;
-  font: 400 10px var(--sans)
+  font: 400 15px var(--sans)
 }
 
 .case-facts h2 {
-  font: 500 10px var(--sans);
+  font: 500 15px var(--sans);
   letter-spacing: .1em;
   margin: 30px 0 9px
 }
@@ -693,7 +693,7 @@ strong {
 }
 
 .case-facts ol small {
-  font-size: 10px;
+  font-size: 15px;
   color: #999;
   margin-right: 6px
 }
@@ -709,7 +709,7 @@ strong {
 }
 
 .case-overview>p:not(.eyebrow) {
-  font: 400 14px/1.85 var(--sans);
+  font: 400 17px/1.5 var(--sans);
   color: #656565
 }
 
@@ -750,7 +750,7 @@ strong {
   grid-column: 1;
   grid-row: 2;
   margin-top: -5px;
-  font: 400 13px/1.85 var(--sans);
+  font: 400 19px/1.5 var(--sans);
   color: #666
 }
 
@@ -1003,6 +1003,7 @@ strong {
   overflow-x: clip
 }
 
+/* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media(max-width:899px) {
   body {
     background: #fff
@@ -1217,7 +1218,7 @@ strong {
   }
 
   .project-summary {
-    font-size: 12px;
+    font-size: 15px;
     max-width: 90%
   }
 
@@ -1248,7 +1249,7 @@ strong {
   }
 
   .case-head>p:last-child {
-    font-size: 12px
+    font-size: 16px
   }
 
   .case-opening {
@@ -1268,7 +1269,7 @@ strong {
   }
 
   .case-facts dt {
-    font-size: 9px
+    font-size: 13px
   }
 
   .case-facts dd {
@@ -1288,7 +1289,7 @@ strong {
   }
 
   .case-overview>p:not(.eyebrow) {
-    font-size: 12px
+    font-size: 17px
   }
 
   .feature-section {
@@ -1302,7 +1303,7 @@ strong {
 
   .feature-section>p {
     margin: 15px 0 25px;
-    font-size: 12px
+    font-size: 15px
   }
 
   .feature-gallery {
@@ -1360,6 +1361,7 @@ strong {
   }
 }
 
+/* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media(max-width:410px) {
   .app-frame {
     padding-inline: 17px
@@ -1383,7 +1385,7 @@ strong {
   }
 
   .project-summary {
-    font-size: 11px
+    font-size: 15px
   }
 
   .projects-intro h1 {
@@ -1407,6 +1409,7 @@ strong {
   }
 }
 
+/* It is a CSS media query that detects whether a user has enabled a setting in their operating system (OS) to reduce on-screen motion, such as animations, transitions, and scrolling effects. */
 @media(prefers-reduced-motion:reduce) {
   html {
     scroll-behavior: auto
@@ -1601,7 +1604,7 @@ textarea:focus-visible {
 }
 
 .intro-about {
-  font: 400 15px/1.85 var(--sans);
+  font: 400 26px/1.12 var(--sans);
   max-width: 340px;
   color: #4c4c4c;
   margin-top: 32px;
@@ -1754,7 +1757,7 @@ textarea:focus-visible {
 }
 
 .project-summary {
-  font: 400 13px/1.6 var(--sans);
+  font: 400 15px/1.6 var(--sans);
   color: #4d4d4d;
   max-width: 92%;
 }
@@ -1878,11 +1881,11 @@ textarea:focus-visible {
 }
 
 .case-head>p:last-child {
-  font: 400 12px/1.65 var(--sans);
+  font: 400 16px/1.12 var(--sans);
 }
 
 .case-head>p:nth-child(3) {
-  font: 400 16px/1.75 var(--sans);
+  font: 400 19px/1.2 var(--sans);
   color: #424242;
   max-width: 700px;
 }
@@ -1909,18 +1912,18 @@ textarea:focus-visible {
 }
 
 .case-facts dt {
-  font-size: 11px;
+  font-size: 15px;
   color: #626262;
   margin: 18px 0 6px;
 }
 
 .case-facts dd {
-  font: 400 14px/1.65 var(--sans);
+  font: 400 15px/1.65 var(--sans);
   color: #2d2d2d;
 }
 
 .case-facts h2 {
-  font-size: 11px;
+  font-size: 15px;
   margin-top: 31px;
 }
 
@@ -1935,7 +1938,7 @@ textarea:focus-visible {
 }
 
 .case-facts ol li {
-  font-size: 13px;
+  font-size: 15px;
   line-height: 1.5;
   padding: 11px 0;
 }
@@ -1956,7 +1959,7 @@ textarea:focus-visible {
 }
 
 .case-overview>p:not(.eyebrow) {
-  font: 400 16px/1.86 var(--sans);
+  font: 400 17px/1.5 var(--sans);
   color: #3d3d3d;
 }
 
@@ -1984,7 +1987,7 @@ textarea:focus-visible {
 }
 
 .feature-section>p {
-  font: 400 14px/1.85 var(--sans);
+  font: 400 19px/1.5 var(--sans);
   color: #444;
   max-width: 310px;
   margin-top: 0;
@@ -2128,6 +2131,7 @@ textarea:focus-visible {
 }
 
 /* Wider tablet and mobile: physical metaphor cannot make content spill or clip. */
+/* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media (max-width:899px) {
   .app-frame {
     max-width: none;
@@ -2258,7 +2262,7 @@ textarea:focus-visible {
   }
 
   .project-summary {
-    font-size: 13px;
+    font-size: 15px;
     max-width: 95%;
   }
 
@@ -2307,7 +2311,7 @@ textarea:focus-visible {
   }
 
   .case-head>p:nth-child(3) {
-    font-size: 15px;
+    font-size: 19px;
   }
 
   .case-opening {
@@ -2328,11 +2332,11 @@ textarea:focus-visible {
   }
 
   .case-facts dt {
-    margin-top: 13px;
+    margin-top: 15px;
   }
 
   .case-facts dd {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .case-overview {
@@ -2340,7 +2344,7 @@ textarea:focus-visible {
   }
 
   .case-overview>p:not(.eyebrow) {
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .case-overview h2 {
@@ -2357,7 +2361,7 @@ textarea:focus-visible {
   }
 
   .feature-section>p {
-    font-size: 14px;
+    font-size: 19px;
     max-width: 640px;
     margin: 15px 0 24px;
   }
@@ -2406,6 +2410,7 @@ textarea:focus-visible {
   }
 }
 
+/* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media (max-width:599px) {
   .app-frame {
     padding-inline: 20px;
@@ -2527,6 +2532,7 @@ textarea:focus-visible {
   }
 }
 
+/* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media (max-width:370px) {
   .app-frame {
     padding-inline: 16px;
@@ -2545,7 +2551,7 @@ textarea:focus-visible {
   }
 
   .project-summary {
-    font-size: 12px;
+    font-size: 15px;
   }
 
   .profile-paper address {
@@ -2557,6 +2563,7 @@ textarea:focus-visible {
   }
 }
 
+/* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media (hover:none) {
 
   .project-image img,
@@ -2565,6 +2572,7 @@ textarea:focus-visible {
   }
 }
 
+/* It is a CSS media query that detects whether a user has enabled a setting in their operating system (OS) to reduce on-screen motion, such as animations, transitions, and scrolling effects. */
 @media (prefers-reduced-motion:reduce) {
   html {
     scroll-behavior: auto;
@@ -2660,12 +2668,13 @@ textarea:focus-visible {
   margin-top: 9px;
 }
 
+/* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media (hover:none) {
   .image-open::after {
     opacity: 1;
   }
 }
-
+/* It is a CSS media query that detects whether a user has enabled a setting in their operating system (OS) to reduce on-screen motion, such as animations, transitions, and scrolling effects. */
 @media (prefers-reduced-motion:reduce) {
   .image-open::after {
     transition: none;
@@ -2735,19 +2744,19 @@ textarea:focus-visible {
 .cv-entries h3,
 .cv-skills h3,
 .cv-referees h3 {
-  font: 600 13px/1.3 var(--sans);
+  font: 700 16px/1.3 var(--sans);
   margin: 0;
   letter-spacing: 0;
 }
 
 .cv-entries time {
-  font: 500 10px/1.3 var(--sans);
+  font: 500 14px/1.3 var(--sans);
   color: #555;
   white-space: nowrap;
 }
 
 .cv-entries p {
-  font: 400 11.5px/1.45 var(--sans);
+  font: 400 14px/1.45 var(--sans);
   color: #333;
   margin: 4px 0 0;
 }
@@ -2764,7 +2773,7 @@ textarea:focus-visible {
 
 .cv-skills h3,
 .cv-referees h3 {
-  font-size: 14px;
+  font-size: 16px;
   margin: 0 0 10px;
 }
 
@@ -2777,12 +2786,12 @@ textarea:focus-visible {
 }
 
 .cv-skills dt {
-  font: 600 11px/1.4 var(--sans);
+  font: 600 14px/1.12 var(--sans);
   color: #333;
 }
 
 .cv-skills dd {
-  font: 400 11.5px/1.45 var(--sans);
+  font: 400 14px/1.12 var(--sans);
   margin: 0;
   color: #444;
 }
@@ -2794,7 +2803,7 @@ textarea:focus-visible {
 }
 
 .cv-referees address {
-  font: 400 11.5px/1.4 var(--sans);
+  font: 400 14px/1.4 var(--sans);
 }
 
 .cv-referees address p {
@@ -2814,6 +2823,7 @@ textarea:focus-visible {
   outline-offset: 3px;
 }
 
+/* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media (max-width:899px) {
   .cv-paper {
     height: 590px;
@@ -2832,6 +2842,7 @@ textarea:focus-visible {
   }
 }
 
+/* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media (max-width:410px) {
   .cv-paper {
     height: 590px;
@@ -2947,6 +2958,7 @@ textarea:focus-visible {
 }
 
 /* On narrower screens we keep the fold small and reserve header space. */
+/* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media (max-width:899px) {
   .cv-paper .page-prev {
     --fold-size: 26px;
@@ -2990,6 +3002,7 @@ textarea:focus-visible {
   }
 }
 
+/* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media (max-width:410px) {
   .cv-paper .page-prev {
     --fold-size: 23px;
@@ -3052,6 +3065,7 @@ textarea:focus-visible {
   flex-shrink: 0;
 }
 
+/* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media (max-width:899px) {
 
   .profile-paper:not(.cv-paper) .page-prev,
@@ -3070,6 +3084,7 @@ textarea:focus-visible {
   }
 }
 
+/* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media (max-width:410px) {
 
   .profile-paper:not(.cv-paper) .page-prev,
@@ -3261,7 +3276,6 @@ option {
   flex: 0 0 auto;
 }
 
-/* Design detail: preserve the existing case-study grammar. */
 .design-case .case-head>p:nth-child(3) {
   font-size: 21px;
   line-height: 1.35;
@@ -3288,7 +3302,7 @@ option {
 }
 
 .design-case .case-facts nav {
-  margin-top: 10px;
+  margin-top: 14px;
   display: grid;
   gap: 10px;
 }
@@ -3382,6 +3396,7 @@ option {
   text-decoration: underline;
 }
 
+/* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media (max-width: 899px) {
   .design-layout .project-stage {
     margin-top: 38px;
@@ -3421,6 +3436,7 @@ option {
   }
 }
 
+/* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media (max-width: 599px) {
   .mobile-bottom-nav a {
     font-size: 21px;
@@ -3447,12 +3463,8 @@ option {
     font-size: 23px;
   }
 
-  .design-directory ol {
-    grid-template-columns: 1fr;
-  }
-
-  .design-directory h2 {
-    font-size: 30px;
+  .design-directory {
+    display: none;
   }
 
   .design-note h3 {
@@ -3464,6 +3476,7 @@ option {
   }
 }
 
+/* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media (max-width: 370px) {
   .mobile-bottom-nav a {
     font-size: 18px;
@@ -3544,6 +3557,7 @@ option {
   text-underline-offset: 5px;
 }
 
+/* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media (max-width: 599px) {
   .siren-concept-gallery .feature-gallery {
     gap: 21px;
@@ -3618,6 +3632,7 @@ option {
 }
 
 /* Tablet and mobile */
+/* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media (max-width: 899px) {
 
   .page-home .mobile-profile-intro {
@@ -3637,7 +3652,7 @@ option {
   }
 
   .page-home .mobile-profile-intro .intro-about {
-    font: 400 17px/1.6 var(--sans);
+    font: 400 14px/1.6 var(--sans);
     color: #4c4c4c;
     margin: 0;
     max-width: 100%;
@@ -3734,6 +3749,7 @@ option {
   margin: 0;
 }
 
+/* It is a CSS media query that detects whether a user has enabled a setting in their operating system (OS) to reduce on-screen motion, such as animations, transitions, and scrolling effects. */
 @media (prefers-reduced-motion: reduce) {
   .stack-transition-layer {
     display: none;
