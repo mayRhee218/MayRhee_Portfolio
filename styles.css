@@ -2596,7 +2596,7 @@ textarea:focus-visible {
 }
 
 .image-open::after {
-  content: '↗ Enlarge';
+  content: ' Enlarge';
   position: absolute;
   right: 8px;
   bottom: 8px;
