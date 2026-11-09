@@ -1425,11 +1425,8 @@ strong {
 }
 
 /* ===== Design refinements (formerly design-v4.css) ===== */
-/*
- * May Rhee — Portfolio v4 / editorial design refinement
- * Intent: quiet black-and-white paper, readable UI, meaningful motion.
- * Layered over the original styles to keep the existing project structure intact.
- * No div/span wrappers required.
+/* I merged two different CSS (styles.css, design-v4.css),
+ * and this below part is for design-v4.css, which are design project related pages.
  */
 :root {
   --paper: #fff;
@@ -2130,7 +2127,6 @@ textarea:focus-visible {
   margin-top: 8px;
 }
 
-/* Wider tablet and mobile: physical metaphor cannot make content spill or clip. */
 /* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media (max-width:899px) {
   .app-frame {
@@ -2881,9 +2877,6 @@ textarea:focus-visible {
   }
 }
 
-
-/* Profile notebook refinements: visually small fold, reliably unobstructed heading.
-   Previous CSS used min-width:48px, which overrode --fold-size:36px. */
 .cv-paper .page-prev {
   --fold-size: 28px;
   width: 28px;
@@ -2957,7 +2950,7 @@ textarea:focus-visible {
   margin-bottom: 11px;
 }
 
-/* On narrower screens we keep the fold small and reserve header space. */
+/* On narrower screens I ketp the fold small and reserve header space. */
 /* CSS media queries allow you to apply styles based on the characteristics of a device or the environment displaying the web page. (W3Schools, https://www.w3schools.com/css/css3_mediaqueries.asp) */
 @media (max-width:899px) {
   .cv-paper .page-prev {
@@ -3105,7 +3098,7 @@ textarea:focus-visible {
 
 
 /* ================================================
-   DESIGN ARCHIVE / shared paper-notebook extension
+   DESIGN ARCHIVE 
    Only Google Caveat is used throughout the site.
 ================================================ */
 
